@@ -12,7 +12,7 @@
 Welcome to the "Hardware e Redes de Computadores" exercises repository!
 
 <h2>Overview</h2>
-    This repository contains all the exercises completed during a class about python, which is part of the Network Administration and Cybersecurity course at CESAE (Centro para Desenvolvimento das Competências Digitais).
+    This repository contains all the exercises completed during a class introducing network services, which is part of the Network Administration and Cybersecurity course at CESAE (Centro para Desenvolvimento das Competências Digitais).
     The course was in Portuguese so the content of this repository will be aswell.
 
 <h2>About the Course</h2> 
