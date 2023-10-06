@@ -1,0 +1,83 @@
+GERAIS
+no ip domain-lookup -> desabilitar "tradução"
+show running-confi -> verificar configs
+hostname "nome" -> defenir nome do equipamento
+banner motd # -> alterar banner
+copy running-config startup-config -> guardar configs (wr)
+ip address "IP" "mask" -> configurar um ip
+no shutdown -> ativa porta
+shutdown -> desativar porta
+logging synchronous -> anula mensagens de lo(config-line)
+ip default-gateway "gateway" -> configurar gateway no switch
+
+
+
+PASSWORDS
+|line console 0
+|password "pass" -> atribuir pass para consola
+|login
+
+enable secret "pass" -> atribuir pass para modo previligiado
+service password-encrypton -> ocultar passwords do show
+
+
+
+ACESSO TELNET
+line vty 0 4 -> defenir numero de acessos
+|password "pass" -> atribuir pass
+|login
+
+VLANs
+vlan "numero da vlan" -> criar vlan
+name "nome" -> nome da vlan
+
+int "porta" -> selecionar as portas(range para varias)
+switchport mode acess -> configurar modo acesso (entre switch e eq terminal)
+switchport acess vlan "numero da vlan" -> indicar qual vlan 
+
+switchport mode trunk -> trunkar portas(entre switches ou switch e router)
+
+showm vlan brief -> estado das vlans
+
+
+
+SSH
+int "vlan" -> entrar na vlan
+ip address "ip" "mask" -> atribuir ip 
+hostname " nome" -> nome do host
+ip domain-name "nome" -> nome do dominio
+crypto key generate rsa -> criar chave (normalmente 2048 bits)
+username "user" priv 15 password "pass" -> criar user de acesso e pass
+
+ip ssh timeout "n" -> tempo de sessao inativa em segundos
+ip ssh authentication-retries "n" -> numero de tentativas para entrar
+
+|line vty 0 4
+|login local
+|transport input ssh
+
+
+
+CONFIGs ROUTER
+int "interface" -> entrar na interface
+no shut -> ativar interface
+
+int "interface.vlan" -> criar sub interface
+encapsulation dot1Q "numero vlan" -> fazer o encapsulamento
+ip address "ip" "mask" -> ip da interface (gateway)
+
+DHCP
+ip dhcp pool "nome" -> criar dhcp, nome da vlan
+network "ip de rede" "mask" -> identificar rede
+default-router "gateway" -> indicar o gateway
+dns-server "ip de dns" -> defenir dns (8.8.8.8)(opcional)
+ip dhcp excluded-address "ip" -> excluir ips do dhcp
+
+
+Server DHCP
+->Fixar ip no server
+->Configurar pools nos services DHCP
+
+Server fora da rede
+->Na interface do router "ip helper-address 'ip do server'"
+
